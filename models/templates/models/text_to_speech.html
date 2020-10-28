@@ -1,0 +1,25 @@
+{% extends 'models/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="text-center">
+    <h1>Text to Speech</h1>
+    <br><br><br>
+    <form action="{% url 'text_to_speech' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        {% if form %}
+        <input class="btn btn-danger" type="submit" value="Submit">
+        {% endif %}
+    </form><br><br><br>
+    <h3>For the input: {{input}}</h3>
+    <audio controls>
+
+        <source src="{% static 'speech/sample.mp3' %}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+
+</div>
+{% endblock content %}

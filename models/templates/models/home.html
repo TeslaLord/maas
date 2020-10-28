@@ -1,0 +1,55 @@
+{% extends 'models/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="container text-center" id="services">
+    <div class="col-md-6 text-left">
+        <h1>Services</h1>
+        <p>
+            We Provide a variety of Deep learning models for the user to choose from.
+            No computational resources of the user is involved. Everything is taken care of
+            in the server.
+        </p>
+    </div>
+    <br><br><br>
+    <div class="col-md-6 offset-md-3">
+        <h1>Sentimental Analysis</h1>
+        <p>
+            Sentimental analysis acts as a feedback analyser. It provides the satisfactory level of a customer,
+            given a sentence.
+            It accurately depicts whether the customer is Happy about the product or sad.
+        </p>
+
+        <a class="btn btn-danger" href="{% url 'sentiment' %}">Try sentimental Analysis</a>
+    </div><br><br>
+    <div class="col-md-6 offset-md-3">
+        <h1>Category Classifier</h1>
+        <p>
+            Category Classifier accepts an input text and predicts which category the text belongs to.
+            It is very useful in separating the category buckets of which category the text belongs to,
+            and can also be used to make multi category prediction
+        </p>
+        <a class="btn btn-danger" href="{% url 'category' %}">Try Category Classifier</a>
+    </div>
+    <br><br><br>
+    <div class="col-md-6 offset-md-3">
+        <h1>Text to Speech</h1>
+        <p>
+            Text to speech accepts an input text, and with vectorization and natural language processing,
+            it is able to convert the text to a computerized speech.
+        </p>
+        <a class="btn btn-danger" href="{% url 'text_to_speech' %}">Try Text to Speech</a>
+    </div>
+    <br><br><br>
+    <div class="col-md-6 offset-md-3">
+        <h1>Speech To Text</h1>
+        <p>
+            Speech to text involves natural language processing, as it can identify the phonems,
+            and can distinguish complex words efficiently
+        </p>
+        <a class="btn btn-danger" href="{% url 'speech_to_text' %}">Try Text to Speech</a>
+    </div>
+</section>
+<br><br><br><br><br><br>
+
+{% endblock content %}

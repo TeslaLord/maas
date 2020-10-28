@@ -1,0 +1,25 @@
+{% extends 'models/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="text-center">
+    <h1>Speech To Text</h1>
+    <br><br><br>
+    <form action="{% url 'speech_to_text' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <!-- <label for="myfile">Select a file:</label>
+        <input type="file" id="myfile" name="myfile"> -->
+        <input class="btn btn-danger" type="submit" value="Submit">
+    </form><br><br><br>
+
+
+    <h3>For the input: {{input}}</h3>
+
+    {{output}}
+
+
+
+</div>
+{% endblock content %}

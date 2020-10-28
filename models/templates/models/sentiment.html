@@ -1,0 +1,21 @@
+{% extends 'models/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="text-center">
+    <h1>Sentimental Analysis</h1>
+    <br><br><br>
+    <form action="{% url 'sentiment' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        {% if form %}
+        <input class="btn btn-danger" type="submit" value="Submit">
+        {% endif %}
+    </form><br><br><br>
+    <h3>For the input: {{input}}</h3>
+    <label for="sentiment_level">Satisfactory level:</label>
+    <progress id="sentiment_level" value={{blob}} max="2" min="0"> </progress>
+
+</div>
+{% endblock content %}
