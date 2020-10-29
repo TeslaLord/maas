@@ -13,9 +13,10 @@
         <input class="btn btn-danger" type="submit" value="Submit">
         {% endif %}
     </form><br><br><br>
+    {% if input %}
     <h3>For the input: {{input}}</h3>
     <label for="sentiment_level">Satisfactory level:</label>
     <progress id="sentiment_level" value={{blob}} max="2" min="0"> </progress>
-
+    {% endif %}
 </div>
 {% endblock content %}

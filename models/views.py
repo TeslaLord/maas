@@ -64,7 +64,7 @@ def text_to_speech(request):
         myob = gTTS(text=my, lang=language, slow=True)
         myob.save("static/speech/sample.mp3")
         context = {'form': form, 'myob': myob,
-                   'input': request.POST['speech_text']}
+                   'input': request.POST['speech_text'], 'post': True}
         return render(request, 'models/text_to_speech.html', context)
     else:
         form = SpeechForm()
