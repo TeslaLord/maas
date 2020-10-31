@@ -7,4 +7,5 @@ urlpatterns = [
     path('category/', views.category, name='category'),
     path('text_to_speech/', views.text_to_speech, name='text_to_speech'),
     path('speech_to_text/', views.speech_to_text, name='speech_to_text'),
+    path('pdf/', views.pdf, name='pdf'),
 ]

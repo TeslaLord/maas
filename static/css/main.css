@@ -122,32 +122,23 @@ body {
 }
 
 .card-header {
-    /* background:linear-gradient(rgba(0,255,255,0.5),rgba(0,0,0,0.3)); */
-    background: linear-gradient(rgba(0, 0, 128, 0.5), rgba(0, 0, 128, 0.3));
-    background: linear-gradient(rgba(0, 190, 255, 0.5), rgba(0, 190, 255, 0.3));
-    background: linear-gradient(to left, darkorange, orange, orange, yellow);
-    background-image: linear-gradient(to right, darkorange, orange, yellow, yellow, orange, orange);
-    /* background-image:linear-gradient(to right,#AE8625, #F7EF8A, #D2AC47,#EDC967); */
-    background-image: linear-gradient(to right, #DFBD69, #E0AA3E, #B88A44, #D2AC47, #926F34);
+
     color: black;
 }
 
 .card-body {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-    color: white;
+    color: rgb(157, 230, 240);
+    ;
     background: black;
-    /* background-image:linear-gradient(darkorange, orange, yellow,yellow,orange,black); */
-
-    /* background:linear-gradient(to left, rgba(255, 140, 0,0.3),rgba(255,165,0,0.5),rgba(255, 140, 0,0.7)); */
 }
 
 .card-body p {
-    color: white;
+    color: rgb(157, 230, 240);
+    ;
 
 }
 
 .card {
-    /* box-shadow: 0px 25px 42px rgba(255, 140, 0, 0.9); */
     box-shadow: 0px 25px 42px rgba(0, 0, 0, 0.9);
 }
 
@@ -155,78 +146,40 @@ body {
 
 
 
-
-.cover {
-    width: 100%;
-    height: 85vmin;
-    background: url("images/im1.jpg");
-    /* background-repeat: no-repeat; */
-    background-position: -9rem -4rem;
-    background-size: cover;
-    position: relative;
-}
-
-.cover .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999;
-}
-
-.cover .content {
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    padding-top: 19vmin;
-}
-
-.cover .content>h1 {
-    font-family: Patua, serif, sans-serif;
-    font-size: 6vmin;
-    color: whitesmoke;
-}
-
-.cover .content>h3 {
-    font-family: Patua, serif, sans-serif;
-    font-size: 4vmin;
-    color: #e5e5e5;
-}
-
-div .contactcard {
-    margin-top: -25vmin;
-}
-
-.border {
-    /* background:linear-gradient(to bottom right,#DFBD69, #E0AA3E,#B88A44,#D2AC47,#926F34); */
-    background: linear-gradient(to bottom right, #996515, #FFCC00, #B88A44, #C6930A, #F1B82D, #C6930A, #996515);
-    background: linear-gradient(to right, #DFBD69, #E0AA3E, #B88A44, #D2AC47, #926F34);
-    /* border: 10px solid transparent; */
-    padding: 10px;
-}
-
 .container-fluid {
     padding-top: 10vmin;
     padding-bottom: 10vmin;
 
 }
 
-/* form input,textarea {
-    background:linear-gradient(to left,#996515, #FFCC00,#B88A44,#C6930A,#F1B82D,#C6930A,#996515);
-    color:white !important;
-  }
-  ::placeholder{
-  
-    color:white !important;
-  } */
 
-/* .btn {
-    background: linear-gradient(to right, #DFBD69, #E0AA3E, #B88A44, #D2AC47, #926F34) white;
-    
-    color: black;
-    border: 0.5px solid white;
-} */
+.col-md-3 .card {
+    width: 100%;
+    height: 100%;
+
+}
+
+.card-img-top img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 290px;
+    width: 500px;
+}
+
+.myimage {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.myimage:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+
+}
+
 
 .btn:hover {
     background: black;

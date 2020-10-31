@@ -15,3 +15,12 @@ class SpeechForm(forms.Form):
 
 class TextForm(forms.Form):
     audio_file = forms.FileField()
+
+
+class ImageForm(forms.Form):
+    image_file = forms.FileField(
+        widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    CHOICES = [('original', 'Original'),
+               ('bw', 'Black and white')]
+
+    type = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)

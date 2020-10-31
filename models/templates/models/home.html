@@ -2,9 +2,136 @@
 {% load static %}
 {% block content %}
 
+<section class="container text-center" id="about">
+    <h1>About</h1>
+    <h3>Deployment of Deep learning models in the web</h3>
+    <hr>
+    <p>In this era of AI, Machine Learning and Deep Learning, machine computation and prediction
+        is hugely beneficial to everyone in any field. The art of prediction is now better than ever.
+        Human Computation is reduced significantly, whether it is face detection or stock market prediction.
+        Almost Everyone wishes to use these powers. Creating models and predicting has never been easier.
+
+    </p>
+    <p>
+        However, there is one factor that is almost always overlooked while using these models for
+        real life applications. Training deep neural networks, known as deep learning, is currently highly complex and
+        computationally intensive. While GPUs have helped accelerate training, the amount of data as well as complexity
+        of models have increased the computation need beyond the capability of a single GPU. For example, training on
+        2.5 million images on a single GPU can take 6 days on a simple model. A common user cannot enjoy these powers,
+        when
+        they have to wait for hours, and it might even require GPU, which may not be available in most
+        PC. Also they are also unnecessarily exposed to the details of the underlying hardware and software
+        infrastructure, including configuring expensive GPU machines, installing deep learning libraries, and managing
+        the jobs during execution to handle failures and recovery. . Hence the part of deploying models is overlooked.
+        Model Deployment
+        takes the computational resources of the server rather than of the user. And if the server is backed,
+        and connected via distributed computing, it can significantly increase its speed and uses server GPU,
+        using zero to few, user's resources.
+    </p>
+    <p> Some examples of usage of deep learning within application and services are: speech recognition, visual
+        recognition, natural language understanding and classification, and language translation. </p>
+    <p>Deep Learning As a Service uses a distribution and orchestration layer that facilitates learning from a large
+        amount of data in a reasonable amount of time across compute nodes. This project aims to take the deep learning
+        models live, using Django Framework, and hosting the application, so that it is completely abstracted to the
+        real world.
+    </p>
+    <hr>
+    <br><br><br>
+    <h1>Our Team</h1>
+    <p>Our tasks were divided among 4 people, as uniformly as possible.</p>
+    <hr>
+    <br>
+
+
+
+    <div class="team row d-flex align-items-stretch">
+        <div class="col-md-3 col-sm-12 text-center">
+            <div class="card mr-2 d-inline-block shadow-lg">
+                <div class="card-img-top">
+                    <img src="{% static 'speech/mithun.jpeg' %}" class="img-fluid border-radius p-1 myimage" alt=""
+                        id="round_img">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Mithun</h3>
+                    <hr style="background-color: green">
+                    <p class="card-text">
+                        Mr. Mithun has intermediate knowledge in image processing, Machine Learning, and has experience
+                        working
+                        in Matlab, and
+                        opencv.
+                        He helped the team contribute to two main servies - PdfScanner and Text-to-speech.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-12 text-center">
+            <div class="card mr-2 d-inline-block shadow-lg">
+                <div class="card-img-top">
+                    <img src="{% static 'speech/jawahar.jpg' %}" class="img-fluid border-radius p-1 myimage" alt=""
+                        id="round_img">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Jawahar Babu</h3>
+                    <hr style="background-color: green">
+                    <p class="card-text">
+                        Mr. Mithun has intermediate knowledge in image processing, Machine Learning, and has experience
+                        working
+                        in Matlab, and
+                        opencv.
+                        He helped the team contribute to two main servies - PdfScanner and Text-to-speech.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12 text-center">
+            <div class="card mr-2 d-inline-block shadow-lg">
+                <div class="card-img-top">
+                    <img src="{% static 'speech/venky.jpeg' %}" class="img-fluid border-radius p-1 myimage" alt=""
+                        id="round_img">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Venkadesh</h3>
+                    <hr style="background-color: green">
+                    <p class="card-text">
+                        Mr. Mithun has intermediate knowledge in image processing, Machine Learning, and has experience
+                        working
+                        in Matlab, and
+                        opencv.
+                        He helped the team contribute to two main servies - PdfScanner and Text-to-speech.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12 text-center">
+            <div class="card mr-2 d-inline-block shadow-lg">
+                <div class="card-img-top">
+                    <img src="{% static 'speech/tharun.jpeg' %}" class="img-fluid  p-1 myimage" alt="" id="round_img">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Tharun</h3>
+                    <hr style="background-color: green">
+                    <p class="card-text">
+                        Mr. Mithun has intermediate knowledge in image processing, Machine Learning, and has experience
+                        working
+                        in Matlab, and
+                        opencv.
+                        He helped the team contribute to two main servies - PdfScanner and Text-to-speech.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br><br><br><br>
+
 <section class="container text-center" id="services">
-    <div class="col-md-6 text-left">
+    <div class="col-md-12 text-center">
         <h1>Services</h1>
+        <hr>
+        <br>
         <p>
             We Provide a variety of Deep learning models for the user to choose from.
             No computational resources of the user is involved. Everything is taken care of
@@ -47,7 +174,16 @@
             Speech to text involves natural language processing, as it can identify the phonems,
             and can distinguish complex words efficiently
         </p>
-        <a class="btn btn-danger" href="{% url 'speech_to_text' %}">Try Text to Speech</a>
+        <a class="btn btn-danger" href="{% url 'speech_to_text' %}">Try Speech to Text</a>
+    </div>
+    <br><br><br>
+    <div class="col-md-6 offset-md-3">
+        <h1>Pdf Scanner</h1>
+        <p>
+            Pdf scanner efficiently processed input images, and enhances and aligns the image,
+            and gives a pdf version of the images.
+        </p>
+        <a class="btn btn-danger" href="{% url 'pdf' %}">Try Pdf Scanner</a>
     </div>
 </section>
 <br><br><br><br><br><br>

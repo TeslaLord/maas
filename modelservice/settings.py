@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'models.apps.ModelsConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -72,7 +73,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'modelservice.wsgi.application'
 
-
+FILE_UPLOAD_HANDLERS = [
+    'django.core.files.uploadhandler.TemporaryFileUploadHandler']
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -133,3 +135,5 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "static/speech")
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

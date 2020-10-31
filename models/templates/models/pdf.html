@@ -1,0 +1,35 @@
+{% extends 'models/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<div class="container text-center">
+    <h1>Pdf Scanner</h1>
+    <br><br><br>
+
+    <form action="{% url 'pdf' %}" method="post" enctype="multipart/form-data" class="form-group">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group text-center col-12 mb-0">
+                <h3>Upload image(s)</h3>
+                {{form.image_file }}
+            </div>
+        </div>
+        <br><br>
+        {{ form.type|as_crispy_field }}
+        <!-- <label for="myfile">Select a file:</label>
+        <input type="file" id="myfile" name="myfile"> -->
+        <input class="btn btn-danger" type="submit" value="Submit">
+    </form><br><br><br>
+
+    {% if input %}
+    <h3>For the input: {{input}}</h3>
+    <a href="{% static 'speech/test.pdf' %}" target="_blank">Download</a>
+    {{output}}
+    {% endif %}
+
+
+</div>
+{% endblock content %}
