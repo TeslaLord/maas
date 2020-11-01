@@ -1,7 +1,6 @@
 from sklearn.pipeline import make_pipeline
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.feature_extraction.text import TfidfVectorizer
-import matplotlib.pyplot as plt
 import numpy as np
 from django.shortcuts import render
 from textblob import TextBlob
@@ -16,15 +15,13 @@ import os
 import cv2
 import numpy as np
 from PIL import Image
-from TwitterAPI import *
+
 
 
 def sentiment(request):
     if request.method == 'POST':
         feedback = request.POST['sentiment_text']
-
         blob = TextBlob(feedback)
-
         form = SentimentForm(request.POST)
         blob = blob.polarity + 1
         context = {'blob': blob, 'form': form,
@@ -61,11 +58,9 @@ def category(request):
 
 def text_to_speech(request):
     if request.method == 'POST':
-
         form = SpeechForm(request.POST, request.FILES)
-        print(request.FILES)
+
         if request.FILES:
-            print("HJADJHDSAJHDKJASKDHSKADJHKSAJDHKSJADH")
             opened_text_file = open(
                 request.FILES['text_file'].temporary_file_path(), 'r')
             my = opened_text_file.read()
@@ -78,7 +73,7 @@ def text_to_speech(request):
         myob = gTTS(text=my, lang=language, slow=True)
         myob.save("static/speech/sample.mp3")
         context = {'form': form, 'myob': myob,
-                   'input': file_var, 'post': True,
+                   'input': file_var,
                    }
 
         return render(request, 'models/text_to_speech.html', context)
@@ -91,6 +86,7 @@ def speech_to_text(request):
     if request.method == 'POST':
         form = TextForm(request.POST, request.FILES)
         r = sr.Recognizer()
+        print(request.FILES['audio_file'].temporary_file_path())
         AUDIO_FILE = request.FILES['audio_file']
 
         with sr.AudioFile(AUDIO_FILE) as source:

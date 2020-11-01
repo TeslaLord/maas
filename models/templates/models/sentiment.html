@@ -10,9 +10,9 @@
     <form action="{% url 'sentiment' %}" method="post">
         {% csrf_token %}
         {{ form }}
-        {% if form %}
+
         <input class="btn btn-danger" type="submit" value="Submit">
-        {% endif %}
+
     </form><br><br><br>
     {% if input %}
     <h3>For the input: {{input}}</h3>
