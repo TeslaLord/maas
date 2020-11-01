@@ -7,9 +7,14 @@
     <h1>Text to Speech</h1>
     <hr>
     <br><br><br>
-    <form action="{% url 'text_to_speech' %}" method="post">
+    <form action="{% url 'text_to_speech' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form }}
+        <h3>Enter the Text</h3>
+        {{ form.speech_text }}
+        <h3>OR</h3>
+        <h3>Upload txt file</h3>
+        {{form.text_file}}
+
         {% if form %}
         <input class="btn btn-danger" type="submit" value="Submit">
         {% endif %}

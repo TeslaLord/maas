@@ -10,7 +10,9 @@ class CategoryForm(forms.Form):
 
 
 class SpeechForm(forms.Form):
-    speech_text = forms.CharField(label='Enter the text', max_length=100)
+    speech_text = forms.CharField(
+        label='Enter the text', max_length=100, required=False)
+    text_file = forms.FileField(required=False)
 
 
 class TextForm(forms.Form):
