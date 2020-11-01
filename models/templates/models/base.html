@@ -89,9 +89,11 @@
 
 
     </header>
+    {% block cover %}
 
+    {% endblock cover %}
     <main>
-        <img style="height:100vmin;width:100%;" src="{% static 'speech/logo.png' %}" alt="">
+
         <br><br>
         {% block content %}
 

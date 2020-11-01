@@ -1,5 +1,8 @@
 {% extends 'models/base.html' %}
 {% load static %}
+{% block cover %}
+<img style="height:100vmin;width:100%;" src="{% static 'speech/logo.png' %}" alt="">
+{% endblock cover %}
 {% block content %}
 
 <section class="container text-center" id="about">
