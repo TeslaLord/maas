@@ -25,7 +25,7 @@ SECRET_KEY = 'gddn)$#*x9%hb&6im$by%dja&+*td=()g84s@i9d8_wa*02#is'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['thinkxtreme.com','13.232.222.181']
 
 
 # Application definition

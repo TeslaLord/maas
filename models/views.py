@@ -1,13 +1,13 @@
-from sklearn.pipeline import make_pipeline
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.feature_extraction.text import TfidfVectorizer
+#from sklearn.pipeline import make_pipeline
+#from sklearn.naive_bayes import MultinomialNB
+#from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
 from django.shortcuts import render
 from textblob import TextBlob
 # Create your views here.
 from .forms import *
-from sklearn.datasets import fetch_20newsgroups
-from sklearn.metrics import confusion_matrix
+#from sklearn.datasets import fetch_20newsgroups
+#from sklearn.metrics import confusion_matrix
 import speech_recognition as sr
 from gtts import gTTS
 import playsound
