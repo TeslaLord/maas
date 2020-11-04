@@ -101,7 +101,6 @@ def speech_to_text(request):
 
 def pdf(request):
     if request.method == 'POST':
-        print('posting.......')
         """FUNCTION TO SHOW THE IMAGE"""
         def show_img(img_list):
             for j, img in enumerate(img_list):
