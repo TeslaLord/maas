@@ -350,7 +350,7 @@ def pdf(request):
         pil_convert(transformed_image, final_img_list)
 
         """13.CONVERTING INTO PDF AND SAVING"""
-        img_to_pdf(final_img_list, "test")
+        img_to_pdf(final_img_list, "test1")
         context = {
             'form': form,
             'input': True,
