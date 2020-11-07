@@ -27,7 +27,7 @@
 
     {% if input %}
     <h3>For the input: {{input}}</h3>
-    <a href="/static/speech/{{file}}" target="_blank">Download</a>
+    <a href={{ file }} target="_blank">Download</a>
     {{output}}
     {% endif %}
 

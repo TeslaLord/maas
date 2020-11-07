@@ -57,13 +57,9 @@ def category(request):
     return render(request, 'models/category.html', {'form': form})
 
 
-
-
-
 def text_to_speech(request):
     if request.method == 'POST':
         form = SpeechForm(request.POST, request.FILES)
-
 
         if request.FILES:
             opened_text_file = open(
@@ -71,22 +67,15 @@ def text_to_speech(request):
             my = opened_text_file.read()
             opened_text_file.close()
             file_var = "For the File: " + str(request.FILES['text_file'])
-            language = 'en'
-            myob = gTTS(text=my, lang=language, slow=True)
-            myob.save("static/speech/"+str(request.FILES['text_file'])+str(rand_number)+".mp3")
-            file = str(request.FILES['text_file'])+str(rand_number)+".mp3"
         else:
             my = request.POST['speech_text']
             file_var = request.POST['speech_text']
-            language = 'en'
-            myob = gTTS(text=my, lang=language, slow=True)
-            myob.save("static/speech/"+str(request.POST['speech_text'])+str(rand_number)+".mp3")
-            file = str(request.POST['speech_text'])+str(rand_number)+".mp3"
+        language = 'en'
+        myob = gTTS(text=my, lang=language, slow=True)
+        myob.save("static/speech/sample.mp3")
         context = {'form': form, 'myob': myob,
                    'input': file_var,
-                   'file':file
                    }
-
 
         return render(request, 'models/text_to_speech.html', context)
     else:
