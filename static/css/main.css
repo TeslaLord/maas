@@ -205,3 +205,24 @@ footer .container-fluid {
 footer .column a+a {
     padding: 0 0.7em;
 }
+
+
+
+.content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.account-img {
+    height: 125px !important;
+    width: 125px !important;
+    margin-right: 20px;
+    margin-bottom: 16px;
+}
+
+.account-heading {
+    font-size: 2.5rem;
+}

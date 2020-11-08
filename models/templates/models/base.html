@@ -72,7 +72,6 @@
                                 <a class="dropdown-item" href="{% url 'speech_to_text' %}">Speech to text</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{% url 'pdf' %}">Pdf Scanner</a>
-                                <a class="dropdown-item" href="{% url 'speech_to_text' %}">Audio to srt</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -81,6 +80,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'home' %}#contact">CONTACT</a>
                         </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                        {% endif %}
 
                     </ul>
                 </div>
@@ -95,6 +109,11 @@
     <main>
 
         <br><br>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}}">{{message}}</div>
+        {% endfor %}
+        {% endif %}
         {% block content %}
 
         {% endblock content %}
