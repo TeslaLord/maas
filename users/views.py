@@ -33,6 +33,7 @@ def results(request):
     courses = list(data.keys())
     values = list(data.values())
     figure = io.BytesIO()
+    fig = plt.subplots(figsize =(6, 6)) 
     plt.bar(courses, values, color='maroon',
             width=0.4)
     plt.xlabel("Courses")
@@ -50,6 +51,7 @@ def results(request):
     values1 = list(data1.values())
     figure.seek(0)
     figure.truncate(0)
+    fig = plt.subplots(figsize =(6, 6)) 
     plt.bar(courses1, values1, color='maroon',
             width=0.4)
     plt.xlabel("Courses")
@@ -67,6 +69,7 @@ def results(request):
     values2 = list(data2.values())
     figure.seek(0)
     figure.truncate(0)
+    fig = plt.subplots(figsize =(6, 6)) 
     plt.bar(courses2, values2, color='maroon',
             width=0.4)
     plt.xlabel("Courses")
@@ -79,6 +82,7 @@ def results(request):
 
     figure.seek(0)
     figure.truncate(0)
+    fig = plt.subplots(figsize =(6, 6)) 
     plt.pie(values, labels=courses)
     plt.title("UNIT TEST - 1 Scores")
     plt.legend()
@@ -89,6 +93,7 @@ def results(request):
 
     figure.seek(0)
     figure.truncate(0)
+    fig = plt.subplots(figsize =(6, 6)) 
     plt.pie(values1, labels=courses1)
     plt.title("UNIT TEST - 2 Scores")
     plt.legend()
@@ -100,6 +105,7 @@ def results(request):
 
     figure.seek(0)
     figure.truncate(0)
+    fig = plt.subplots(figsize =(6, 6)) 
     plt.pie(values2, labels=courses2)
     plt.title("UNIT TEST - 3 Scores")
     plt.legend()
@@ -115,11 +121,11 @@ def results(request):
     fig = plt.subplots(figsize =(12, 8)) 
   
     length = [6,12,18,24,30]
-    plt.bar([i for i in length], values, color ='r', width = barWidth, 
+    plt.bar([i for i in length], values, color ='maroon', width = barWidth, 
             edgecolor ='grey', label ='UT1') 
-    plt.bar([i+1 for i in length], values1, color ='g', width = barWidth, 
+    plt.bar([i+1 for i in length], values1, color ='grey', width = barWidth, 
             edgecolor ='grey', label ='UT2') 
-    plt.bar([i+2 for i in length], values2, color ='b', width = barWidth, 
+    plt.bar([i+2 for i in length], values2, color ='navy', width = barWidth, 
             edgecolor ='grey', label ='UT3') 
 
     plt.xlabel('Score', fontweight ='bold') 
