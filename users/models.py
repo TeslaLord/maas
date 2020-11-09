@@ -6,9 +6,25 @@ from PIL import Image
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
-    bio = models.CharField(max_length=2000)
-    skills = models.CharField(max_length=2000)
-    aoi = models.CharField(max_length=2000)
+    bio = models.CharField(max_length=2000, blank=True)
+    skills = models.CharField(max_length=2000, blank=True)
+    aoi = models.CharField(max_length=2000, blank=True)
+    github = models.CharField(max_length=200, blank=True)
+    linkedin = models.CharField(max_length=200, blank=True)
+    ut1 = models.CharField(max_length=200, blank=True)
+    ut2 = models.CharField(max_length=200, blank=True)
+    ut3 = models.CharField(max_length=200, blank=True)
+    ut1p = models.ImageField(upload_to='plots', blank=True)
+    ut2p = models.ImageField(upload_to='plots', blank=True)
+    ut3p = models.ImageField(upload_to='plots', blank=True)
+
+    # ut1pb = models.ImageField(upload_to='plots', blank=True)
+    # ut2pb = models.ImageField(upload_to='plots', blank=True)
+    # ut3pb = models.ImageField(upload_to='plots', blank=True)
+
+    ut12 = models.ImageField(upload_to='plots', blank=True)
+    ut13 = models.ImageField(upload_to='plots', blank=True)
+    ut23 = models.ImageField(upload_to='plots', blank=True)
 
     def __str__(self):
         return f'{self.user.username} Profile'

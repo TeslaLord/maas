@@ -8,10 +8,22 @@
         <img alt="" class="rounded-circle account-img" src="{{user.profile.image.url}}">
         <div class="media-body">
             <h2 class="account-heading">{{user.username}}</h2>
+            <h2 class="account-heading">{{user.roll}}</h2>
+            <h2 class="account-heading">{{user.dept}}</h2>
             <p class="text-secondary">{{user.email}}</p>
             <p class="text-secondary">{{user.profile.bio}}</p>
             <p class="text-secondary">{{user.profile.skills}}</p>
             <p class="text-secondary">{{user.profile.aoi}}</p>
+            <div class="column">
+                {% if user.profile.github %}
+                <a href="{{user.profile.github}}" target="_blank" class="fa fa-github profa"
+                    style="font-size:25px; margin-right:5%;"></a>
+                {% endif %}
+                {% if user.profile.linkedin %}
+                <a href="{{user.profile.linkedin}}" target="_blank" class="fa fa-linkedin profa"
+                    style="font-size:25px;margin-right:5%;"></a>
+                {% endif %}
+            </div>
         </div>
     </div>
     <form method="POST" enctype="multipart/form-data">

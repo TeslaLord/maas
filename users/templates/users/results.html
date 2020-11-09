@@ -1,0 +1,18 @@
+{% extends 'models/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="border-top pt-3 text-center">
+    <h2>UT results are out</h2>
+    <div class="row">
+        {% for image in images %}
+        <div class="col-sm-6">
+            <img src="{{image}}" alt="">
+        </div>
+        {% endfor %}
+    </div>
+    </small>
+</div>
+
+
+{% endblock content %}
