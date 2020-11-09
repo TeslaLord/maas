@@ -8,7 +8,7 @@ import io
 from django.core.files.images import ImageFile
 import urllib
 import base64
-
+import numpy as np
 
 def register(request):
     if request.method == "POST":
@@ -81,6 +81,7 @@ def results(request):
     figure.truncate(0)
     plt.pie(values, labels=courses)
     plt.title("UNIT TEST - 3 Scores")
+    plt.legend()
     plt.savefig(figure, format="png")
     content_file2 = ImageFile(figure)
     curr.ut1pb.save(curr.aoi+'ut3b.png', content_file2)
@@ -90,28 +91,42 @@ def results(request):
     figure.truncate(0)
     plt.pie(values1, labels=courses1)
     plt.title("UNIT TEST - 3 Scores")
+    plt.legend()
     plt.savefig(figure, format="png")
     content_file2 = ImageFile(figure)
     curr.ut2pb.save(curr.aoi+'ut3b.png', content_file2)
+
     plt.clf()
 
     figure.seek(0)
     figure.truncate(0)
     plt.pie(values2, labels=courses2)
     plt.title("UNIT TEST - 3 Scores")
+    plt.legend()
     plt.savefig(figure, format="png")
     content_file2 = ImageFile(figure)
     curr.ut3pb.save(curr.aoi+'ut3b.png', content_file2)
+    
     plt.clf()
 
     figure.seek(0)
     figure.truncate(0)
-    plt.bar(values, courses, color='r',
-            edgecolor='grey', label='UT1')
-    plt.bar(values1, courses1, color='g',
-            edgecolor='grey', label='UT2')
-    plt.bar(values2, courses2, color='b',
-            edgecolor='grey', label='UT3')
+    barWidth = 1
+    fig = plt.subplots(figsize =(12, 8)) 
+  
+    length = [6,12,18,24,30]
+    plt.bar([i for i in length], values, color ='r', width = barWidth, 
+            edgecolor ='grey', label ='UT1') 
+    plt.bar([i+1 for i in length], values1, color ='g', width = barWidth, 
+            edgecolor ='grey', label ='UT2') 
+    plt.bar([i+2 for i in length], values2, color ='b', width = barWidth, 
+            edgecolor ='grey', label ='UT3') 
+
+    plt.xlabel('Score', fontweight ='bold') 
+    plt.ylabel('Subjects in UT', fontweight ='bold') 
+    plt.xticks([i+1 for i in length], 
+            ['IP', 'MRF', 'RA', 'SAT', 'FOC']) 
+    plt.legend()
     plt.savefig(figure, format="png")
     content_file2 = ImageFile(figure)
     curr.ut12.save(curr.aoi+'ut3b.png', content_file2)
