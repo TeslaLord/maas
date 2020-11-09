@@ -80,7 +80,7 @@ def results(request):
     figure.seek(0)
     figure.truncate(0)
     plt.pie(values, labels=courses)
-    plt.title("UNIT TEST - 3 Scores")
+    plt.title("UNIT TEST - 1 Scores")
     plt.legend()
     plt.savefig(figure, format="png")
     content_file2 = ImageFile(figure)
@@ -90,7 +90,7 @@ def results(request):
     figure.seek(0)
     figure.truncate(0)
     plt.pie(values1, labels=courses1)
-    plt.title("UNIT TEST - 3 Scores")
+    plt.title("UNIT TEST - 2 Scores")
     plt.legend()
     plt.savefig(figure, format="png")
     content_file2 = ImageFile(figure)
@@ -124,6 +124,7 @@ def results(request):
 
     plt.xlabel('Score', fontweight ='bold') 
     plt.ylabel('Subjects in UT', fontweight ='bold') 
+    plt.title("UNIT TEST Performance Comparison")
     plt.xticks([i+1 for i in length], 
             ['IP', 'MRF', 'RA', 'SAT', 'FOC']) 
     plt.legend()
