@@ -134,8 +134,6 @@ MEDIA_URL = '/images/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, "static/speech")
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CACHES = {

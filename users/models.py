@@ -11,9 +11,11 @@ class Profile(models.Model):
     aoi = models.CharField(max_length=2000, blank=True)
     github = models.CharField(max_length=200, blank=True)
     linkedin = models.CharField(max_length=200, blank=True)
+
     ut1 = models.CharField(max_length=200, blank=True)
     ut2 = models.CharField(max_length=200, blank=True)
     ut3 = models.CharField(max_length=200, blank=True)
+
     ut1p = models.ImageField(upload_to='plots', blank=True)
     ut2p = models.ImageField(upload_to='plots', blank=True)
     ut3p = models.ImageField(upload_to='plots', blank=True)

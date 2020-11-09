@@ -271,10 +271,10 @@ def pdf(request):
             im1 = img_list[0]
             if len(img_list) > 1:
 
-                im1.save("/maas/static/speech/"+file_name + ".pdf", save_all=True,append_images=img_list[1:])
+                im1.save("static/speech/"+file_name + ".pdf", save_all=True,append_images=img_list[1:])
                 print('hi')                
             else:
-                im1.save("/maas/static/speech/"+file_name + ".pdf")
+                im1.save("static/speech/"+file_name + ".pdf")
                 print('hello')
 
         """GETTING THE IMAGES FROM THE USER"""
