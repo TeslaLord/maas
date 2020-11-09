@@ -4,11 +4,14 @@
 {% block content %}
 <div class="border-top pt-3 text-center">
     <h2>UT results are out</h2>
+
     <div class="row">
         {% for image in images %}
         <div class="col-sm-6">
             <img src="{{image}}" alt="">
+            <br><br>
         </div>
+
         {% endfor %}
     </div>
     </small>

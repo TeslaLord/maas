@@ -18,9 +18,9 @@ class Profile(models.Model):
     ut2p = models.ImageField(upload_to='plots', blank=True)
     ut3p = models.ImageField(upload_to='plots', blank=True)
 
-    # ut1pb = models.ImageField(upload_to='plots', blank=True)
-    # ut2pb = models.ImageField(upload_to='plots', blank=True)
-    # ut3pb = models.ImageField(upload_to='plots', blank=True)
+    ut1pb = models.ImageField(upload_to='plots', blank=True)
+    ut2pb = models.ImageField(upload_to='plots', blank=True)
+    ut3pb = models.ImageField(upload_to='plots', blank=True)
 
     ut12 = models.ImageField(upload_to='plots', blank=True)
     ut13 = models.ImageField(upload_to='plots', blank=True)
