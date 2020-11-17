@@ -16,17 +16,22 @@ import cv2
 import numpy as np
 from PIL import Image
 import random
+import time
 rand_number = random.randint(0,9999999)
 
 
 def sentiment(request):
     if request.method == 'POST':
+        t0 = time.time()
+       
         feedback = request.POST['sentiment_text']
         blob = TextBlob(feedback)
         form = SentimentForm(request.POST)
         blob = blob.polarity + 1
+        t1 = time.time()
         context = {'blob': blob, 'form': form,
-                   'input': request.POST['sentiment_text']}
+                   'input': request.POST['sentiment_text'],
+                   'time':t1-t0}
         return render(request, 'models/sentiment.html', context)
     else:
         form = SentimentForm()
@@ -35,6 +40,8 @@ def sentiment(request):
 
 def category(request):
     if request.method == 'POST':
+        t0 = time.time()
+
         data = fetch_20newsgroups()
         data.target_names
         train = fetch_20newsgroups(
@@ -49,8 +56,9 @@ def category(request):
         labels = model.predict(test.data)
         form = CategoryForm(request.POST)
         category_out = predict_category(request.POST['category_text'])
+        t1 = time.time()
         context = {'category': category_out, 'form': form,
-                   'input': request.POST['category_text']}
+                   'input': request.POST['category_text'], 'time':t1-t0,}
         return render(request, 'models/category.html', context)
     else:
         form = CategoryForm()
@@ -63,8 +71,8 @@ def category(request):
 def text_to_speech(request):
     if request.method == 'POST':
         form = SpeechForm(request.POST, request.FILES)
-
-
+        t0 = time.time()
+ 
         if request.FILES:
             opened_text_file = open(
                 request.FILES['text_file'].temporary_file_path(), 'r')
@@ -82,9 +90,11 @@ def text_to_speech(request):
             myob = gTTS(text=my, lang=language, slow=True)
             myob.save("static/speech/"+str(request.POST['speech_text'])+str(rand_number)+".mp3")
             file = str(request.POST['speech_text'])+str(rand_number)+".mp3"
+        t1 = time.time()
         context = {'form': form, 'myob': myob,
                    'input': file_var,
-                   'file':file
+                   'file':file,
+                    'time':t1-t0,
                    }
 
 
@@ -96,6 +106,8 @@ def text_to_speech(request):
 
 def speech_to_text(request):
     if request.method == 'POST':
+        t0 = time.time()
+    
         form = TextForm(request.POST, request.FILES)
         r = sr.Recognizer()
         print(request.FILES['audio_file'].temporary_file_path())
@@ -104,7 +116,8 @@ def speech_to_text(request):
         with sr.AudioFile(AUDIO_FILE) as source:
             audio = r.record(source)
         output = r.recognize_google(audio)
-        context = {'input': 'files', 'output': output, 'form': form}
+        t1 = time.time()
+        context = {'input': 'files', 'output': output, 'form': form, 'time':t1-t0,}
         return render(request, 'models/speech_to_text.html', context)
     else:
         form = TextForm()
@@ -113,6 +126,8 @@ def speech_to_text(request):
 
 def pdf(request):
     if request.method == 'POST':
+        t0 = time.time()
+
         """FUNCTION TO SHOW THE IMAGE"""
         def show_img(img_list):
             for j, img in enumerate(img_list):
@@ -363,10 +378,12 @@ def pdf(request):
 
         """13.CONVERTING INTO PDF AND SAVING"""
         img_to_pdf(final_img_list, str(request.FILES['image_file']).split('.')[0]+str(rand_number))
+        t1 = time.time()
         context = {
             'form': form,
             'input': True,
             'file':str(request.FILES['image_file']).split('.')[0]+str(rand_number)+".pdf",
+            'time':t1-t0,
 
         }
         print(str(request.FILES['image_file']))
