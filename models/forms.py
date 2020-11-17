@@ -25,4 +25,4 @@ class ImageForm(forms.Form):
     CHOICES = [('original', 'Original'),
                ('bw', 'Black and white')]
 
-    type = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
+    type_of_inp = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)

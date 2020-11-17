@@ -295,7 +295,7 @@ def pdf(request):
         """GETTING THE IMAGES FROM THE USER"""
         # file_format = input("Enter the file format ")
         # images = input("Enter the name of the images ").split()
-        form = ImageForm(request.POST, request.FILES)
+        form = ImageForm(request.POST, request.FILES,initial={'type_of_inp': 'bw'})
         # images =
         correct_images = []
         files = request.FILES.getlist('image_file')
@@ -364,12 +364,14 @@ def pdf(request):
 
         # option = input("Enter your option: 1. original  2. black and white ")
 
-        if request.POST['type'] == 'original':
+        if request.POST['type_of_inp'] == 'original':
             perspective_change(correct_images, req_coor_list,
-                               new_hei_and_wid, transformed_image)
-        elif request.POST['type'] == 'bw':
+                            new_hei_and_wid, transformed_image)
+        elif request.POST['type_of_inp'] == 'bw':
             perspective_change(threshold_image, req_coor_list,
-                               new_hei_and_wid, transformed_image)
+                            new_hei_and_wid, transformed_image)
+
+
         # show_img(transformed_image)
 
         """12.CONVERTING INTO PIL OBJECT"""
@@ -390,7 +392,7 @@ def pdf(request):
         print("successfully converted")
         return render(request, 'models/pdf.html', context)
     else:
-        form = ImageForm()
+        form = ImageForm(initial={'type_of_inp': 'bw'})
         return render(request, 'models/pdf.html', {'form': form})
 
 
